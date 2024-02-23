@@ -31,12 +31,29 @@ resource "azurerm_virtual_network" "myvnet" {
 }
 
 resource "azurerm_subnet" "mysubnet" {
-  for_each = var.resourcedetails
+  for_each = { for k, v in var.resourcedetails : k => v.subnet_name }
 
   name                 = each.value.subnet_name
-  address_prefixes     = ["10.0.0.0/24"]
+  address_prefixes     = ["10.0.${each.value.alpha + 1}.0/24"]
   virtual_network_name = azurerm_virtual_network.myvnet[each.key].name
   resource_group_name  = azurerm_resource_group.myrg[each.key].name
+}
+
+
+resource "azurerm_public_ip" "public_ip" {
+
+for_each = var.resourcedetails
+
+depends_on = [ azurerm_virtual_network.myvnet,
+
+azurerm_subnet.mysubnet
+
+]
+
+  name = each.value.public_ip_name
+  resource_group_name = azurerm_resource_group.myrg[each.key].name
+  location = azurerm_resource_group.myrg[each.key].location
+  allocation_method = "Static"
 }
 
 resource "azurerm_network_interface" "mynic" {
