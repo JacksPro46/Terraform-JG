@@ -29,15 +29,15 @@ resource "azurerm_linux_virtual_machine" "example" {
   location              = azurerm_resource_group.example.location
   size                  = each.value.size
   admin_username        = each.value.admin_username
-  admin_ssh_key         = each.value.admin_ssh_key
-  disable_password_auth = true
+  # admin_ssh_key         = each.value.admin_ssh_key
+  # disable_password_auth = true
 
-  storage_image_reference {
-    publisher = each.value.publisher
-    offer     = each.value.offer
-    sku       = each.value.sku
-    version   = each.value.version
-  }
+  # storage_image_reference {
+  #   publisher = each.value.publisher
+  #   offer     = each.value.offer
+  #   sku       = each.value.sku
+  #   version   = each.value.version
+  # }
 
   os_disk {
     caching              = each.value.os_disk_caching

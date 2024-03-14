@@ -1,0 +1,6 @@
+resource_group = "RG1_JG"
+location = "EastUS"
+Vnet = "jg-vnet1"
+subnet = "jg-vnet1-subnet1"
+vnet_address_prefix = "10.0.0.0/16"
+subnet_address = "10.0.1.0/24"
