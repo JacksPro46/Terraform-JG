@@ -24,7 +24,7 @@ resource "azurerm_app_service" "example" {
   depends_on = [ azurerm_app_service_plan.app_paln ]
   name                = var.app_service_name
   location            = var.location
-  resource_group_name = var.resource_group
+  resource_group_name = local.resource_group_name  ## added name from locals.tf file that enhances larger name here
   app_service_plan_id = azurerm_app_service_plan.app_paln.id
 
   site_config {
