@@ -41,4 +41,6 @@ resource "azurerm_app_service" "example" {
     type  = "SQLServer"
     value = "Server=some-server.mydomain.com;Integrated Security=SSPI"
   }
+
+  tags = local.common_tags
 }

@@ -24,3 +24,12 @@ variable "app_service_name" {
   description = "The name of the service"
 }
 
+variable "bu_name" {
+  type = string
+  description = "This name referred to business unit"
+}
+
+variable "dep_name" {
+  type = string
+  description = "This name refers to department name"
+}
