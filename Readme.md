@@ -1,3 +1,5 @@
+## Modules
+
 ## A great reason to create Terraform Modules is to isolate common blocks of Terraform code that are used in one or more projects many times, and enhance it with coding conventions, compliance requirements, best practices, and other security standards that are defined requirements to adhere to within your team and organization. This helps ensure these requirements are met regardless of what Terraform Project manages the resources a specific Terraform Modules is coded to manage. 
 
 ## A couple of security or compliance requirements that may need to be adhered to are supporting only the latest version of TLS or connecting an Azure Network Security Group (NSG) to a Virtual Network (VNet) Subnet to lock down network traffic flow. These are types of “convention over configuration” that could be implemented in a Terraform Project, or across multiple Terraform Projects, through the use of a set of shared Terraform Modules.
